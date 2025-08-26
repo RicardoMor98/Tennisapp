@@ -16,6 +16,12 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
+
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,6 +36,7 @@ SECRET_KEY = 'django-insecure-54)ri%_ofdy=#hfgq4lsmm=ay$8u)55w!1+4v_q-g+#n_!e@)!
 DEBUG = False
 
 ALLOWED_HOSTS = ['8000-ricardomor98-tennisapp-uh6njcwglg3.ws-eu121.gitpod.io',
+                 'tennisapp-8eb4dafae95a.herokuapp.com',
                  '.herokuapp.com', 
                  '127.0.0.1', ]
 
@@ -42,7 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'tennisapp',
 ]
 
