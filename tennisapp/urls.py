@@ -15,9 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from appsystem import views as index_views
+from django.conf import settings
+from django.conf.urls.static import static
+from .views import root_route
+
 
 urlpatterns = [
-    path('', index_views.index, name='index'),
+    path('', root_route),
     path('admin/', admin.site.urls),
+    path('api/auth/', include('dj_rest_auth.urls')),
+    path('api/auth/registration/', include('dj_rest_auth.registration.urls')),
+    path('api/profiles/', include('profiles.urls')),
+    path('api/training/', include('training.urls')),
+    path('api/tournaments/', include('tournaments.urls')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
