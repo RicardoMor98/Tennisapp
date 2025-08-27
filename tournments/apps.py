@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class AppsystemConfig(AppConfig):
+class TournmentsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'appsystem'
+    name = 'tournments'
