@@ -51,3 +51,22 @@ class TrainingSession(models.Model):
         start = datetime.combine(self.date, self.start_time)  
         end = datetime.combine(self.date, self.end_time)  
         return (end - start).total_seconds() / 3600  # Return hours
+
+class Tournament(models.Model):
+    SURFACE_TYPES = [
+        ('clay', 'Clay'),
+        ('grass', 'Grass'),
+        ('hard', 'Hard Court'),
+        ('carpet', 'Carpet'),
+    ]
+    
+    name = models.CharField(max_length=200)
+    location = models.CharField(max_length=200)
+    start_date = models.DateField()
+    end_date = models.DateField()
+    surface = models.CharField(max_length=10, choices=SURFACE_TYPES)
+    participants = models.ManyToManyField(PlayerProfile, through='TournamentRegistration')
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
