@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from profiles.models import PlayerProfile
 from .models import TrainingSession
 from profiles.serializers import PlayerProfileSerializer
 

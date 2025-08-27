@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Tournament, TournamentRegistration
+from profiles.models import PlayerProfile
 from profiles.serializers import PlayerProfileSerializer
 from django.contrib.auth.models import User
 
