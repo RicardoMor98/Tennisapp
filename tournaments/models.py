@@ -27,7 +27,6 @@ class TournamentRegistration(models.Model):
     player = models.ForeignKey(PlayerProfile, on_delete=models.CASCADE, related_name='tournament_registrations')
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, related_name='registrations')
     registration_date = models.DateTimeField(auto_now_add=True)
-    seed = models.PositiveIntegerField(null=True, blank=True)
     
     class Meta:
         unique_together = ['player', 'tournament']
