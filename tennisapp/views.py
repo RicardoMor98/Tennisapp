@@ -4,7 +4,7 @@ from rest_framework.response import Response
 @api_view(['GET'])
 def root_route(request):
     return Response({
-        "message": "Welcome to the Tennis Academy API",
+        "message": "Welcome to the Tennis Academy",
         "endpoints": {
             "profiles": "/api/profiles/",
             "training": "/api/training/",
